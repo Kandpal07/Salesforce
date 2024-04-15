@@ -1,9 +1,14 @@
 <template>
-    <lightning-card title="Search Component">
-        <div class="slds-m-around_medium">
-            <lightning-input label="Search Account" value={searchTerm} onchange={handleSearchTermChange}></lightning-input>
-            <lightning-button variant="success" label="Search" onclick={handleSearch}></lightning-button>
-        </div>
+    <lightning-card title= "Account Search screen" class="slds-p-around_medium">
+      
+      <lightning-input label="Search" placeholder="Enter Account name" onchange={searchHandler}></lightning-input>
+    <lightning-datatable
+      key-field="id"
+      data={displayResult}
+      columns={columns}
+    ></lightning-datatable>
+    
     </lightning-card>
+        
         
     </template>
