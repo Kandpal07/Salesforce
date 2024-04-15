@@ -1,14 +1,12 @@
 <template>
     <lightning-card title= "Account Search screen" class="slds-p-around_medium">
       
-      <lightning-input label="Search" placeholder="Enter Account name" onchange={searchHandler}></lightning-input>
+<lightning-input label="Name Search" placeholder="Enter Account name" onchange={searchHandler}></lightning-input>
+<lightning-input label="Phone Search" placeholder="Enter Phone name" onchange={searchHandler}></lightning-input>
     <lightning-datatable
       key-field="id"
       data={displayResult}
       columns={columns}
     ></lightning-datatable>
-    
-    </lightning-card>
-        
-        
-    </template>
+     </lightning-card>
+        </template>

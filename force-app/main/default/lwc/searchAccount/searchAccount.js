@@ -8,7 +8,6 @@ const columns = [
 
 
 export default class SearchAccount extends LightningElement {
-    // @track searchValue;
     searchValue;
     displayResult;
     columns=columns;
