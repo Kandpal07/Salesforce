@@ -1,8 +1,9 @@
 <template>
     <lightning-card title= "Account Search screen" class="slds-p-around_medium">
       
-        <lightning-input class="inputField" value={inputValue} label="Name Search" placeholder="Enter Account name" onchange={handleInputChange}></lightning-input>
-<!-- <lightning-input label="Phone Search"  placeholder="Enter Phone name" onclick={searchHandler}></lightning-input> -->
+        <lightning-input class="inputField" value={accountName} label="Name Search" placeholder="Enter Account name" onchange={handleNameInputChange}></lightning-input>
+        <br>
+        <lightning-input label="Phone Search" value={accountPhone} placeholder="Enter Phone Number" onclick={handlePhoneInputChange}></lightning-input>
   <br>
 <lightning-button label="search" type="button" onclick={handleClick}  ></lightning-button> 
 

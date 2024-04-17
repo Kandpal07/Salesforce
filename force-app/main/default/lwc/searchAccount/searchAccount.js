@@ -12,25 +12,34 @@ export default class SearchAccount extends LightningElement {
     searchValue;
     displayResult;
     columns=columns;
-    inputValue;
-   
-    handleInputChange(event){
+    accountName;
+    accountPhone;
+      
+    handleNameInputChange(event){
         const val = event.target.value.trim(); 
         const words = val.split(' '); 
         const finalWord = words[words.length - 1]; 
-        this.searchValue=finalWord;
-        console.log('Final word :', finalWord);
+        this.accountName=finalWord;
+        console.log('Final name :', this.accountName);
     }
+    handlePhoneInputChange(event){
+        const val = event.target.value.trim(); 
+        const words = val.split(' '); 
+        const finalName = words[words.length - 1]; 
+        this.accountPhone=finalName;
+        console.log('Final phone :', this.accountPhone);
+    }
+
 
     handleClick(event){
         this.ImperativeCall();
     }
         ImperativeCall(){
             console.log('ImperativeCall');
-            getData({searchInput:this.searchValue})
+            getData({inputName:this.accountName,inputPhone:this.accountPhone})
             .then((result) => {
                 this.displayResult=result; 
-                console.log("ID: "+ result.map(a=>a.Id));
+                console.log("Phone: "+ result.map(a=>a.Phone));
             }
         )
             .catch((error) => {
