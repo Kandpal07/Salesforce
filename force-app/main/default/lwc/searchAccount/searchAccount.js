@@ -1,3 +1,4 @@
+
 import  { LightningElement} from 'lwc';
 import getData from '@salesforce/apex/AccountDatatable.getData';
 
@@ -11,23 +12,31 @@ export default class SearchAccount extends LightningElement {
     searchValue;
     displayResult;
     columns=columns;
+    inputValue;
+   
+    handleInputChange(event){
+        const val = event.target.value.trim(); 
+        const words = val.split(' '); 
+        const finalWord = words[words.length - 1]; 
+        this.searchValue=finalWord;
+        console.log('Final word :', finalWord);
+    }
 
-    searchHandler(event){
-        this.searchValue = event.target.value; 
+    handleClick(event){
         this.ImperativeCall();
     }
         ImperativeCall(){
+            console.log('ImperativeCall');
             getData({searchInput:this.searchValue})
             .then((result) => {
-                this.displayResult=result;
-                console.log("obj: " + JSON.stringify( this.displayResult));       
+                this.displayResult=result; 
+                console.log("ID: "+ result.map(a=>a.Id));
             }
-        
         )
             .catch((error) => {
                 console.log('Error occured',error);
             })      
              
             }  
+        
         }
-   
